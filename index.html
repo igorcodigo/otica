@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina | A Claridade que Seu Estilo Merece</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">Lumina</div>
+            <nav class="nav-links">
+                <a href="#destaques">Coleção</a>
+                <a href="#sobre">Sobre Nós</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="#agendar" class="btn btn-outline">Agendar Exame</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title animate-on-scroll">A Claridade que <br><i>Seu Estilo</i> Merece</h1>
+            <p class="hero-subtitle animate-on-scroll stagger-1">Descubra uma curadoria exclusiva de óculos de luxo.
+                Design minimalista, tecnologia óptica de ponta e um requinte inigualável para o seu olhar.</p>
+            <div class="hero-actions animate-on-scroll stagger-2">
+                <a href="#destaques" class="btn btn-primary">Ver Catálogo</a>
+                <a href="#agendar" class="btn btn-text">Agendar Exame <span class="arrow">→</span></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="store-bg.png" alt="Interior sofisticado e elegante da nossa ótica">
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="destaques" class="showcase">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Destaques da Coleção</h2>
+                <p>O equilíbrio perfeito entre o contemporâneo e o atemporal, criando uma identidade única.</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card animate-on-scroll stagger-1">
+                    <div class="product-image">
+                        <img src="Óculos de acetato tartaruga em foco.png" alt="Óculos de acetato tartaruga">
+                    </div>
+                    <div class="product-info">
+                        <h3>Acetato Tartaruga</h3>
+                        <p>Clássico e extremamente versátil, com textura polida à mão impecável que se destaca
+                            discretamente.</p>
+                        <a href="#contato" class="btn-link">Ver detalhes</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card animate-on-scroll stagger-2">
+                    <div class="product-image">
+                        <img src="Óculos de acetato transparente em destaque.png" alt="Óculos de acetato transparente">
+                    </div>
+                    <div class="product-info">
+                        <h3>Cristal Translúcido</h3>
+                        <p>Design contemporâneo e leve que ilumina o rosto, desenhado para quem aprecia sutileza.</p>
+                        <a href="#contato" class="btn-link">Ver detalhes</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card animate-on-scroll stagger-3">
+                    <div class="product-image">
+                        <img src="Óculos de grau em fundo branco.png" alt="Óculos de grau clássico">
+                    </div>
+                    <div class="product-info">
+                        <h3>Minimalismo Essencial</h3>
+                        <p>A pureza de linhas sofisticadas em uma armação levíssima, perfeita para o uso contínuo.</p>
+                        <a href="#contato" class="btn-link">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="about">
+        <div class="container about-container">
+            <div class="about-text animate-on-scroll">
+                <h2>A Experiência <br><i>Lumina</i></h2>
+                <p>Muito além de uma ótica boutique, entregamos um momento dedicado a cuidar da sua visão com o máximo
+                    de requinte, discrição e exclusividade.</p>
+                <p>Nosso ambiente físico foi projetado minuciosamente para proporcionar conforto e tranquilidade. Aliado
+                    a um atendimento altamente personalizado e tecnologia de medição óptica avançada, nossa equipe de
+                    especialistas guiará você até a armação perfeita, valorizando sua expressão da forma mais pura.</p>
+                <a href="#agendar" class="btn btn-outline animate-on-scroll stagger-1">Agendar uma Visita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container animate-on-scroll">
+            <div class="footer-logo">Lumina</div>
+            <p>&copy; 2026 Lumina Ótica Boutique. Estilo e Clareza em Perfeita Harmonia.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts for Scroll Animation & Sticky Header -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => observer.observe(el));
+
+            // Navbar slight shrink on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '1rem 0';
+                } else {
+                    navbar.style.padding = '1.5rem 0';
+                }
+            });
+
+            // Trigger animation immediately for items in viewport
+            setTimeout(() => {
+                elementsToAnimate.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
